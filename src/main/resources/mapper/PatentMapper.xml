@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="nju.edu.graduation.dao.PatentDao">
+    <!--根据专利id获取专利详情-->
+    <select id="GetById" parameterType="int" resultType="Patent">
+        select * from patent where id=#{id}
+    </select>
+</mapper>
