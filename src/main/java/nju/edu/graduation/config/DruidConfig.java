@@ -20,13 +20,15 @@ public class DruidConfig {
     @ConfigurationProperties(prefix = "spring.datasource.druid")
     public DruidDataSource druidDataSource(){
         DruidDataSource druidDataSource = new DruidDataSource();
+
+        //配置druid监控中的proxyFilters
         List<Filter> filters = new ArrayList<>();
         StatFilter statFilter = new StatFilter();
-
         statFilter.setLogSlowSql(true);
-        statFilter.setSlowSqlMillis(2);
+        statFilter.setSlowSqlMillis(2000);
         filters.add(statFilter);
         druidDataSource.setProxyFilters(filters);
+
         return druidDataSource;
     }
 
