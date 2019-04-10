@@ -2,9 +2,10 @@ package nju.edu.graduation.entity;
 
 public class Patent {
     private int id;
+    private String UID;
     private String name;
     private int owner;
-    private int inventor;
+    private String inventor;
     private String content;
 
     public int getId() {
@@ -13,6 +14,14 @@ public class Patent {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getUID() {
+        return UID;
+    }
+
+    public void setUID(String UID) {
+        this.UID = UID;
     }
 
     public String getName() {
@@ -31,11 +40,11 @@ public class Patent {
         this.owner = owner;
     }
 
-    public int getInventor() {
+    public String getInventor() {
         return inventor;
     }
 
-    public void setInventor(int inventor) {
+    public void setInventor(String inventor) {
         this.inventor = inventor;
     }
 

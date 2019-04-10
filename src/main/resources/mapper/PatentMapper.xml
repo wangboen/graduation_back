@@ -7,4 +7,9 @@
     <select id="GetById" parameterType="int" resultType="Patent">
         select * from patent where id=#{id}
     </select>
+
+    <!--根据专利编码获取专利详细信息-->
+    <select id="GetByUid" parameterType="String" resultType="Patent">
+        select * from patent where UID=#{UID}
+    </select>
 </mapper>
