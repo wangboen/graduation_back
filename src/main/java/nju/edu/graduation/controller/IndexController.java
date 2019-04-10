@@ -38,7 +38,7 @@ public class IndexController {
         Patent patent = patentService.info(UID);
         int owner_id = patent.getOwner();
         User owner = userService.GetById(owner_id);
-        Map result = new HashMap<>();
+        Map<String,Object> result = new HashMap<>();
         result.put("id",patent.getId());
         result.put("name",patent.getName());
         result.put("UID",patent.getUID());
