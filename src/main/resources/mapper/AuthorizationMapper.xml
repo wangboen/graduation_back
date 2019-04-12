@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="">
+    <!--添加新的授权许可申请-->
+    <insert id="AddAuthorization" parameterType="Authorization">
+        insert into authorization (`from`, `to`, begin, end, amount) VALUES (#{from},#{to},#{begin},#{end},#{amount})
+    </insert>
+</mapper>

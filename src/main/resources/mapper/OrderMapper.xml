@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="">
+    <!--添加新的交易申请-->
+    <insert id="AddOrder" parameterType="Order">
+        insert into `order` (`from`, `to`, date, amount) values (#{from},#{to},#{date},#{amount})
+    </insert>
+</mapper>
