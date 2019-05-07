@@ -12,4 +12,8 @@
     <select id="GetByUid" parameterType="String" resultType="Patent">
         select * from patent where UID=#{UID}
     </select>
+
+    <select id="GetByName" parameterType="String" resultType="Patent">
+        select * from patent where name=#{name}
+    </select>
 </mapper>

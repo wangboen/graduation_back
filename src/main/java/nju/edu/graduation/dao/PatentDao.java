@@ -10,12 +10,19 @@ public interface PatentDao {
      * @param id 专利id
      * @return 专利实体类，有着专利的详细信息
      */
-    Patent GeyById(int id);
+    Patent GetById(int id);
 
     /**
-     * 根据专利编码获取专利详细信息
+     * 根据专利编码获取专利详情
      * @param UID 专利编码
      * @return 专利实体类，有着专利的详细信息
      */
     Patent GetByUid(String UID);
+
+    /**
+     * 根据专利名称获取专利详情
+     * @param name 专利名称
+     * @return 专利实体类，有着专利的详细信息
+     */
+    Patent GetByName(String name);
 }

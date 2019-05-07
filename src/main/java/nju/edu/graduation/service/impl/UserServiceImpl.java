@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Map;
+
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -20,5 +22,20 @@ public class UserServiceImpl implements UserService {
     @Override
     public User GetById(int id) {
         return userDao.GetById(id);
+    }
+
+    @Override
+    public User Login(User user) {
+        return userDao.Login(user);
+    }
+
+    @Override
+    public void deposit(Map<String, Object> map) {
+        userDao.pay(map);
+    }
+
+    @Override
+    public void get(Map<String, Object> map) {
+        userDao.get(map);
     }
 }

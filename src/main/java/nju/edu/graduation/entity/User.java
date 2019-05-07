@@ -3,6 +3,7 @@ package nju.edu.graduation.entity;
 public class User {
     private int id;
     private String name;
+    private String password;
     private String phone;
     private String email;
 
@@ -24,6 +25,14 @@ public class User {
 
     public String getPhone() {
         return phone;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setPhone(String phone) {

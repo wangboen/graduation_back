@@ -4,10 +4,12 @@ import java.util.Date;
 
 public class Authorization {
     private int id;
+    private int patent;
     private int from;
     private int to;
     private Date begin;
     private Date end;
+    private Date date;
     private float amount;
     private int status;
 
@@ -17,6 +19,14 @@ public class Authorization {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getPatent() {
+        return patent;
+    }
+
+    public void setPatent(int patent) {
+        this.patent = patent;
     }
 
     public int getFrom() {
@@ -53,6 +63,14 @@ public class Authorization {
 
     public float getAmount() {
         return amount;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public void setAmount(float amount) {

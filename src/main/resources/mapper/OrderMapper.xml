@@ -2,9 +2,34 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="">
+<mapper namespace="nju.edu.graduation.dao.OrderDao">
+    <select id="GetById" parameterType="int" resultType="Order">
+        select * from `order` where id=#{id}
+    </select>
+
+    <select id="GetByPatent" parameterType="int" resultType="Order">
+        select * from `order` where patent=#{patent} and status=0
+    </select>
+
     <!--添加新的交易申请-->
     <insert id="AddOrder" parameterType="Order">
-        insert into `order` (`from`, `to`, date, amount) values (#{from},#{to},#{date},#{amount})
+        insert into `order` (patent, `from`, `to`, date, amount) values (#{patent},#{from},#{to},#{date},#{amount})
     </insert>
+
+    <!--获取发送给当前登录用户的所有交易申请-->
+    <select id="getList" parameterType="int" resultType="Order">
+        select * from `order` where `to`=#{to} and status=0
+    </select>
+
+    <update id="confirm2" parameterType="int">
+        update `order` set status=1 where id=#{id}
+    </update>
+
+    <update id="confirm1" parameterType="int">
+        update `order` set status=-1 where patent=#{patent} and status=0
+    </update>
+
+    <update id="cancel" parameterType="int">
+        update `order` set status=-1 where id=#{id}
+    </update>
 </mapper>

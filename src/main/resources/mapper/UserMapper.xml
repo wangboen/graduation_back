@@ -7,4 +7,16 @@
     <select id="GetById" parameterType="int" resultType="User">
         select * from user where id=#{id}
     </select>
+    
+    <select id="Login" parameterType="User" resultType="User">
+        select * from user where name=#{name} and password=#{password}
+    </select>
+
+    <update id="pay" parameterType="Map">
+        update user set account=account-#{amount} where id=#{id}
+    </update>
+
+    <update id="get" parameterType="Map">
+        update user set account=account+#{amount} where id=#{id}
+    </update>
 </mapper>

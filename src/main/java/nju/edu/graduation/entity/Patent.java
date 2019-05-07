@@ -7,6 +7,7 @@ public class Patent {
     private int owner;
     private String inventor;
     private String content;
+    private String upload;
 
     public int getId() {
         return id;
@@ -54,5 +55,13 @@ public class Patent {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getUpload() {
+        return upload;
+    }
+
+    public void setUpload(String upload) {
+        this.upload = upload;
     }
 }

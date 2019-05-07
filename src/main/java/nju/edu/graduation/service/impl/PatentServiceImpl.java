@@ -22,4 +22,14 @@ public class PatentServiceImpl implements PatentService {
     public Patent info(String UID) {
         return patentDao.GetByUid(UID);
     }
+
+    @Override
+    public Patent GetById(int parent_id) {
+        return patentDao.GetById(parent_id);
+    }
+
+    @Override
+    public Patent GetByName(String name) {
+        return patentDao.GetByName(name);
+    }
 }

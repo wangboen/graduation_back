@@ -2,9 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="">
+<mapper namespace="nju.edu.graduation.dao.AuthorizationDao">
+    <select id="GetById" parameterType="int" resultType="Authorization">
+        select * from authorization where id=#{id}
+    </select>
+
     <!--添加新的授权许可申请-->
     <insert id="AddAuthorization" parameterType="Authorization">
-        insert into authorization (`from`, `to`, begin, end, amount) VALUES (#{from},#{to},#{begin},#{end},#{amount})
+        insert into authorization (patent, `from`, `to`, begin, end, date, amount) VALUES (#{patent},#{from},#{to},#{begin},#{end},#{date},#{amount})
     </insert>
+
+    <!--获取发送给当前登录用户的所有授权申请-->
+    <select id="getList" parameterType="int" resultType="Authorization">
+        select * from authorization where `to`=#{to} and status=0
+    </select>
+
+    <update id="confirm" parameterType="int">
+        update authorization set status=1 where id=#{id}
+    </update>
+
+    <update id="cancel" parameterType="int">
+        update authorization set status=-1 where id=#{id}
+    </update>
 </mapper>

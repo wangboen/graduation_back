@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Order {
     private int id;
+    private int patent;
     private int from;
     private int to;
     private Date date;
@@ -16,6 +17,14 @@ public class Order {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getPatent() {
+        return patent;
+    }
+
+    public void setPatent(int patent) {
+        this.patent = patent;
     }
 
     public int getFrom() {
