@@ -2,6 +2,7 @@ package nju.edu.graduation.service;
 
 import nju.edu.graduation.entity.User;
 
+import java.util.List;
 import java.util.Map;
 
 public interface UserService {
@@ -12,4 +13,6 @@ public interface UserService {
     void deposit(Map<String,Object> map);
 
     void get(Map<String,Object> map);
+
+    List<User> getOther(int id);
 }

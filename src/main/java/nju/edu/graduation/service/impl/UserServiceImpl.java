@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Map;
 
 @Service
@@ -37,5 +38,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public void get(Map<String, Object> map) {
         userDao.get(map);
+    }
+
+    @Override
+    public List<User> getOther(int id) {
+        return userDao.getOther(id);
     }
 }

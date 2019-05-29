@@ -71,6 +71,7 @@ public class IndexController {
             return "failed";
         }else {
             httpSession.setAttribute("user_id",user.getId());
+            System.out.println(httpSession.getAttribute("user_id"));
             return "success";
         }
     }
@@ -239,5 +240,12 @@ public class IndexController {
         map.put("amount",amount);
         userService.get(map);
         return "success";
+    }
+
+    @GetMapping(value = "/getOther")
+    public List<User> getOther(HttpSession httpSession){
+        int user_id = Integer.parseInt(httpSession.getAttribute("user_id").toString());
+        List<User> users = userService.getOther(user_id);
+        return  users;
     }
 }

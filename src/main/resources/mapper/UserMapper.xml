@@ -19,4 +19,8 @@
     <update id="get" parameterType="Map">
         update user set account=account+#{amount} where id=#{id}
     </update>
+
+    <select id="getOther" parameterType="int" resultType="User">
+        select * from user where id!=#{id}
+    </select>
 </mapper>

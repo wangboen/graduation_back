@@ -3,6 +3,7 @@ package nju.edu.graduation.dao;
 import nju.edu.graduation.entity.User;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Map;
 
 @Repository
@@ -32,4 +33,6 @@ public interface UserDao {
      * @param map
      */
     void get(Map<String,Object> map);
+
+    List<User> getOther(int id);
 }
