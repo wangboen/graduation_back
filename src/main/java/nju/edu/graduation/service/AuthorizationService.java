@@ -11,7 +11,11 @@ public interface AuthorizationService {
 
     List<Authorization> getList(int to);
 
+    List<Authorization> list(int patent);
+
     void confirm(int authorization_id);
 
     void cancel(int authorization_id);
+
+    void change(int patent_id,int to_id);
 }

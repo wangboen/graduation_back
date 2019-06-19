@@ -17,11 +17,19 @@
         select * from authorization where `to`=#{to} and status=0
     </select>
 
+    <select id="list" parameterType="int" resultType="Authorization">
+        select * from authorization where patent=#{patent} and status=1
+    </select>
+
     <update id="confirm" parameterType="int">
         update authorization set status=1 where id=#{id}
     </update>
 
     <update id="cancel" parameterType="int">
         update authorization set status=-1 where id=#{id}
+    </update>
+
+    <update id="change" parameterType="Map">
+        update authorization set `to`=#{to} where patent=#{patent} and status=0
     </update>
 </mapper>

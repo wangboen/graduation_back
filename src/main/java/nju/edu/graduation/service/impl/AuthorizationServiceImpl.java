@@ -35,6 +35,11 @@ public class AuthorizationServiceImpl implements AuthorizationService {
     }
 
     @Override
+    public List<Authorization> list(int patent) {
+        return authorizationDao.list(patent);
+    }
+
+    @Override
     public void confirm(int authorization_id) {
         authorizationDao.confirm(authorization_id);
     }
@@ -42,5 +47,10 @@ public class AuthorizationServiceImpl implements AuthorizationService {
     @Override
     public void cancel(int authorization_id) {
         authorizationDao.cancel(authorization_id);
+    }
+
+    @Override
+    public void change(int patent_id, int to_id) {
+        authorizationDao.change(patent_id,to_id);
     }
 }

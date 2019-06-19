@@ -39,6 +39,11 @@ public class OrderServiceImpl implements OrderService {
     }
 
     @Override
+    public List<Order> list(int patent) {
+        return orderDao.list(patent);
+    }
+
+    @Override
     public void confirm(int order_id, int patent_id) {
         orderDao.confirm1(patent_id);
         orderDao.confirm2(order_id);

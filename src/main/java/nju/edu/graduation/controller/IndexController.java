@@ -59,6 +59,58 @@ public class IndexController {
         }
     }
 
+    @PostMapping(value = "/transactionlist")
+    public List<Map> transactionlist(@RequestBody Map request, HttpSession httpSession){
+        String UID = request.get("UID").toString();
+        Patent patent = patentService.info(UID);
+        if (patent==null){
+            return null;
+        }else {
+            int patent_id = patent.getId();
+            List<Order> orders = orderService.list(patent_id);
+            List<Map> maps = new ArrayList<>();
+            for (Order order : orders) {
+                int from_id = order.getFrom();
+                User user = userService.GetById(from_id);
+                String from = user.getName();
+                Map<String, Object> map = new HashMap<>();
+                map.put("id",order.getId());
+                map.put("from",from);
+                map.put("date",order.getDate());
+                map.put("amount",order.getAmount());
+                maps.add(map);
+            }
+            return maps;
+        }
+    }
+
+    @PostMapping(value = "/authorizationlist")
+    public List<Map> authorizationlist(@RequestBody Map request,HttpSession httpSession){
+        String UID = request.get("UID").toString();
+        Patent patent = patentService.info(UID);
+        if (patent==null){
+            return null;
+        }else {
+            int patent_id = patent.getId();
+            List<Authorization> authorizations = authorizationService.list(patent_id);
+            List<Map> maps = new ArrayList<>();
+            for (Authorization authorization : authorizations) {
+                int from_id = authorization.getFrom();
+                User user = userService.GetById(from_id);
+                String from = user.getName();
+                Map<String, Object> map = new HashMap<>();
+                map.put("id",authorization.getId());
+                map.put("from",from);
+                map.put("date",authorization.getDate());
+                map.put("begin",authorization.getBegin());
+                map.put("end",authorization.getEnd());
+                map.put("amount",authorization.getAmount());
+                maps.add(map);
+            }
+            return maps;
+        }
+    }
+
     @PostMapping(value = "/login")
     public String login(@RequestBody Map request, HttpSession httpSession){
         String name = request.get("name").toString();
@@ -171,6 +223,9 @@ public class IndexController {
             userService.get(map);
         }
         orderService.confirm(order_id,patent_id);
+        Order order = orderService.GetById(order_id);
+        int from_id = order.getFrom();
+        authorizationService.change(patent_id,from_id);
         return "success";
     }
 

@@ -27,7 +27,11 @@ public interface AuthorizationDao {
      */
     List<Authorization> getList(int to);
 
+    List<Authorization> list(int patent);
+
     void confirm(int id);
 
     void cancel(int id);
+
+    void change(int patent,int to);
 }

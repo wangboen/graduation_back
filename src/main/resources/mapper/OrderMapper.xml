@@ -21,6 +21,10 @@
         select * from `order` where `to`=#{to} and status=0
     </select>
 
+    <select id="list" parameterType="int" resultType="Order">
+        select * from `order` where patent=#{patent} and status=1
+    </select>
+
     <update id="confirm2" parameterType="int">
         update `order` set status=1 where id=#{id}
     </update>

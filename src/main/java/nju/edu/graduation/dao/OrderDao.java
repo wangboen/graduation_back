@@ -29,6 +29,8 @@ public interface OrderDao {
      */
     List<Order> getList(int to);
 
+    List<Order> list(int patent);
+
     void confirm1(int patent);
 
     void confirm2(int id);
